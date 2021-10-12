@@ -1,0 +1,34 @@
+<div class="container-fluid">
+  <div class="header">
+    <h1 class="text-center text-light fw-b">QUOTIFY</h1>
+    <p class="text-light text-center fs-3 fw-b">"Inspire and get Inspired"</p>
+  </div>
+
+  <div class="container">
+    <div>
+      <app-quote-form (addQuote)="addNewQuote($event)"></app-quote-form>
+    </div>
+
+    <div class="row">
+      <div class="d-flex flex-row mb-3 justify-content-around">
+        <div *ngFor="let quote of quotes; let i = index">
+          <div class="container mt-5 mb-2">
+            <h5 id="{{ i }}" appHighlight>{{ quote.description }}</h5>
+            <button class="ml-5 btn-primary" (click)="toogleDetails(i)">
+              See More
+            </button>
+          </div>
+          <div class="container">
+            <div class="row" *ngIf="quote.showDescription">
+              <app-quote-details
+                [quote]="quote"
+                (isComplete)="deleteQuote($event, i)"
+              >
+              </app-quote-details>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

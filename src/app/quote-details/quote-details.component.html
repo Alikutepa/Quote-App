@@ -1,0 +1,22 @@
+<div class="detailes">
+<p>
+  Author:
+  <br>{{quote.author}}</p>
+<p>Name:
+  <br>{{quote.name}}</p>
+<p> {{quote.completeDate|dateCount}} days Has passed since this quote was created</p>
+<div class="row">
+  <div class="col-md-4">
+    <a href="" (click)="voteUp()">
+      <i class="fas fa-thumbs-up icon"></i>
+    </a> ({{likes}})
+  </div>
+  <div class="col-md-4">
+    <a href="" (click)="voteDown()">
+      <i class="fas fa-thumbs-down icon"></i>
+    </a> ({{disLikes}})
+  </div>
+</div>
+
+<button class="btn btn-outline-danger ml-5 sm" (click)='quoteDelete(true)'> Delete </button>
+</div>
